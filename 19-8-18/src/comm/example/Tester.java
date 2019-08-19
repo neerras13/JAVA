@@ -17,13 +17,13 @@ public class Tester {
 		set.add(new StudentComp(2,"B",2.9));
 		set.add(new StudentComp(3,"C",4));
 		set.add(new StudentComp(4,"D",3.9));
-		//syso(set) yiels the sorted list of students based on gpa
+		//syso(set) yields the sorted list of students based on gpa
 		//Make result pretty
-		Object[] obj=set.toArray();
-		StudentComp s=null;
+		Object[] obj=set.toArray();   //make into object array
+		StudentComp s=null;        
 		for(Object o:obj)
 		{
-			s=(StudentComp)o;
+			s=(StudentComp)o;		  //set it as obj for StudentComp and display
 			System.out.printf("\nname: %s %s GPA: %.1f", s.getId(),s.getName(),s.getGpa());
 		}
 	}

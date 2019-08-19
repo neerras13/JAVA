@@ -2,14 +2,17 @@ package comm.example;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
+import java.util.Scanner;
 
 public class JdbcDemo {
 	
 	private static Properties properties = null;
+	private static Scanner sc;
 	
 	public JdbcDemo() {
 		super();}
@@ -26,19 +29,26 @@ public class JdbcDemo {
 		//13 line - Class.forName("org.h2.Driver");
 		//DriverManager.registerDriver(new org.h2.Driver());
 
-		//Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/firstdb","root","Qwerty789!");
 		//Connection connect = DriverManager.getConnection("jdbc:h2:~/first","sa","sa");
-		
 		Connection connect = DriverManager.getConnection(properties.getProperty("JDBC_URL"),properties.getProperty("USER"),properties.getProperty("PASSWORD"));
 		Statement stmt = connect.createStatement();
-		ResultSet rs = stmt.executeQuery("select * from dept");
-		System.out.println("ID Name DepID");
-
+		Statement stmt1= connect.createStatement();
+		
+		int r = stmt.executeUpdate("insert into dept(DepId,DepName,EmpID) values(105,'Neer',234)");
+		System.out.println("("+r+") rows have been updated.");
+		
+		ResultSet rs = stmt1.executeQuery("select * from dept");
 		while(rs.next()) {
-			System.out.printf("\n %d %s %d",rs.getInt("DepID"),rs.getString("DepName"),rs.getInt("EmpID"));
-			
-
+			System.out.printf("\n %d %s %d",rs.getInt(1),rs.getString("DepName"),rs.getInt("EmpID"));
 		}
+		
+		PreparedStatement stmt3= connect.prepareStatement("delete from dept where EmpId=?");
+		System.out.println("enter id");
+		int id = sc.nextInt();
+		stmt3.setInt(1, id);
+		
+		
+		//Clean up 
 		rs.close();
 		stmt.close();
 		connect.close();
