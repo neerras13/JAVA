@@ -1,21 +1,19 @@
 package comm.example;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import com.jgoodies.forms.layout.FormLayout;
-import com.jgoodies.forms.layout.ColumnSpec;
-import com.jgoodies.forms.layout.RowSpec;
 import java.awt.FlowLayout;
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
-import javax.swing.JTextArea;
+
 
 public class DemoFrame extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3379764191159419235L;
 	private JPanel contentPane;
 
 	/**

@@ -9,6 +9,10 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 public class MyFrame extends JFrame {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6140318550467483337L;
 	private JLabel label1;
 	private JTextField text1;
 	private JButton button1;
