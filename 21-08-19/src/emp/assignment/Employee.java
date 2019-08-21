@@ -3,7 +3,7 @@ package emp.assignment;
 import java.util.Date;
 
 public class Employee implements Comparable<Object>{
-	private int id = 0;
+	protected int id;
 	private String name;
 	private String department;
 	private Date dateOfJoining;
@@ -59,9 +59,9 @@ public class Employee implements Comparable<Object>{
 	public Employee() {
 		super();
 	}
-	public Employee(String name, String department,Date dateOfJoining, int age, int salary) {
+	public Employee(int id,String name, String department,Date dateOfJoining, int age, int salary) {
 		super();
-		++this.id;
+		this.id = id;
 		this.name = name;
 		this.department = department;
 		this.dateOfJoining = dateOfJoining;
@@ -82,9 +82,9 @@ public class Employee implements Comparable<Object>{
 		if(this.getSalary() == emp.getSalary())
 			return 0;
 		else if(this.getSalary() > emp.getSalary())
-			return -1;
-		else
 			return 1;
+		else
+			return -1;
 	}
 	
 

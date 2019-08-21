@@ -31,8 +31,8 @@ public class Main {
 			d=sdf.parse(sc.next());
 			int age=sc.nextInt();
 			int salary=sc.nextInt();
-			set.add(new Employee(name,dept,d,age,salary));
-			list.add(new Employee(name,dept,d,age,salary));
+			set.add(new Employee(i,name,dept,d,age,salary));
+			list.add(new Employee(i,name,dept,d,age,salary));
 			//Collections.sort(list, new AgeComparator(name,dept,d,age,salary));
 			i++;
 			emps--;
