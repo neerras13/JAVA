@@ -1,0 +1,1 @@
+Include a constructor for Contact class. Neeraja.
