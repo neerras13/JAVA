@@ -18,9 +18,15 @@ implements Comparable<Object> {
 	}
 
 	@Override
-	public int compareTo(Object arg0) {
+	public int compareTo(Object ob1) {
 		// TODO Auto-generated method stub
-		return 0;
+		State s=(State)ob1;
+		if(this.getName().equals(s.getName()))
+			return 0;
+		else if(this.getName().compareTo(s.getName())>0)
+			return 1;
+		else
+			return -1;
 	}
 
 }

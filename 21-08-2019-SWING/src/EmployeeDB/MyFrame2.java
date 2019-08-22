@@ -48,7 +48,6 @@ public class MyFrame2 extends JFrame {
 	 * @throws SQLException 
 	 */
 	public MyFrame2() throws SQLException {
-		EmployeeServiceImpl emp=new EmployeeServiceImpl();
 		config = new RS2XMLCConfig();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);

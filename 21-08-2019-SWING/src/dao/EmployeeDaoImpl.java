@@ -72,7 +72,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	@Override
 	public void deleteEmployee(int id) throws SQLException
 	{
-		pStatement = connection.prepareStatement("delete from employee where id=?");
+		pStatement = connection.prepareStatement("delete from emps where id=?");
 		pStatement.setInt(1, id);
 		pStatement.executeUpdate();
 	}
@@ -80,7 +80,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	@Override
 	public void createEmployee(Employee employee) {
 		try {
-			pStatement = connection.prepareStatement("insert into employee values(?,?,?,?)");
+			pStatement = connection.prepareStatement("insert into emps values(?,?,?,?)");
 			pStatement.setInt(1, employee.getId());
 			pStatement.setString(2, employee.getFirstName());
 			pStatement.setString(3, employee.getLastName());
@@ -99,7 +99,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	@Override
 	public void updateEmployee(Employee employee) {
 		try {
-			pStatement = connection.prepareStatement("update employee set fname=?,lname=?,email=? where id=?");
+			pStatement = connection.prepareStatement("update emps set fname=?,lname=?,email=? where id=?");
 			pStatement.setInt(4, employee.getId());
 			pStatement.setString(1, employee.getFirstName());
 			pStatement.setString(2, employee.getLastName());
