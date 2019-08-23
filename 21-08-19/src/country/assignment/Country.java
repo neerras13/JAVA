@@ -1,50 +1,37 @@
 package country.assignment;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class Country {
 	
-	List<State> stateList=new ArrayList<State>();
-	private String cname;
-	private String sname;
-	private int i =0;
-	public Country(String cname) {
-		super();
-		this.cname = cname;
-	}
-	public Country() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	public String getCname() {
-		return cname;
-	}
-	public String getSname() {
-		return sname;
-	}
-	public void setCname(String cname) {
-		this.cname = cname;
-	}
-	public void setSname(String sname) {
-		this.sname = sname;
-	}
+	private String name;
+	private Set<State> stateList = new TreeSet<State>();
+
 	
-    public void addState(String statename) {
-    			stateList.add(new State(statename));
-    		}
-    		
- 
-    	
-   
-    public List<State> getStateList(){
-    	ListIterator<State> i = stateList.listIterator();
-    	while(i.hasNext()){
-    		new State(i.next().toString());
-    	}
+	public Country(String name) {
+		super();
+		this.name = name;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public Set<State> getStateList() {
 		return stateList;
-    	
-    }
-}
+	}
+	public void setStateList(State s) {
+		stateList.add(s);
+	}
+	public int compareTo(Object o) {
+		Country s = (Country) o;
+		if (this.getName() == s.getName()) {
+			return 0;
+		} else if (this.getName().compareToIgnoreCase(s.getName()) > 0 ) {
+			return 1;
+		} else {
+			return -1;
+		}
+	}}

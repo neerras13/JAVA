@@ -1,32 +1,40 @@
 package country.assignment;
 
-public class State extends Country 
-implements Comparable<Object> {
-	private String name;
+public class State implements Comparable<Object> {
 
-	public State(String name) {
-		super(name);
-		this.name = name;
+	private String stateName;
+
+	public State() {
+		super();
 	}
 
-	public String getName() {
-		return name;
+	public State(String stateName) {
+		super();
+		this.stateName = stateName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public String getStateName() {
+		return stateName;
+	}
+
+	public void setStateName(String stateName) {
+		this.stateName = stateName;
 	}
 
 	@Override
-	public int compareTo(Object ob1) {
-		// TODO Auto-generated method stub
-		State s=(State)ob1;
-		if(this.getName().equals(s.getName()))
+	public int compareTo(Object o) {
+		State s = (State) o;
+		if (this.getStateName() == s.getStateName()) {
 			return 0;
-		else if(this.getName().compareTo(s.getName())>0)
+		} else if (this.getStateName().compareTo(s.getStateName()) > 0 ) {
 			return 1;
-		else
+		} else {
 			return -1;
+		}
 	}
 
+	@Override
+	public String toString() {
+		return stateName;
+	}
 }

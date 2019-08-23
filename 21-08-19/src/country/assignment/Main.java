@@ -1,46 +1,61 @@
 package country.assignment;
 
-import java.util.List;
-import java.util.Objects;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
 
 public class Main {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		int count,i=0;
-		System.out.println("Enter the input count\n");
-		Scanner sc = new Scanner(System.in);
-		Country[] c = new Country[5];
-//		List<Country> list=new ArrayList<Country>();
-		count = sc.nextInt();
-		
-		System.out.println("Enter input\n");
-		while(count>0) 
-		{
-			String str=sc.next();
-			new Country(str);
-	    	int len=str.length();
-	    	while(len>0 && i<count) {
-	    		if(str.charAt(i)=='|')
-	    		{
-	    			c[i]=new Country();
-	    			c[i].setCname(str.substring(0,str.length()-i));
-	    		    c[i].addState(str.substring(i));
-	    			}
-	    		i++;
-	    		len--;
-	    	}
-	    	count--;
+	public static void main(String args[]) {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("enter number of elements: ");
+		int count = scanner.nextInt();
+		int k = 0;
+		String[] strArray = new String[2];
+		Country[] country=new Country[count];
+		String string;
+		for(int i=0;i<count;i++) {
+			
+			boolean flag = false;
+			int index=0;
+			string = scanner.next();
+			strArray = string.split("\\|");
+			for(int j =0;j<k;j++) {
+				if(strArray[0].equals(country[j].getName())) {
+					flag=true;
+					index=j;
+					k--;
+				}
+				}
+			if(flag) {
+				country[index].setStateList(new State(strArray[1]));
+			}
+			else {
+				country[k] = new Country(strArray[0]);
+				country[k].setStateList(new State(strArray[1]));
+			}
+			k++;
 		}
-		System.out.println(c[0].stateList.get(0));
-//		for(int i1 =0;i1<count;i1++) {
-//			System.out.printf("%s",c[i1].getCname());
-//			System.out.println(c[i1].stateList);
-//
-//		}
-
+		
+		for(int i = 0;i<k;i++) {
+			for(int j=i+1;j<k;j++) {
+				if(country[i].getName().compareToIgnoreCase(country[j].getName()) > 0) {
+					Country temp = country[j];
+					country[j] = country[i];
+					country[i] = temp;
+				}
+			}
+		}
+		
+		for(int i=0;i<k;i++) {
+			System.out.println(country[i].getName());
+			Set<State> stateList = country[i].getStateList();
+			for(State l: stateList) {
+				System.out.println("--"+l);
+			}
+			
+		}
 	}
 
 }
