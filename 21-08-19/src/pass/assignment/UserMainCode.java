@@ -26,7 +26,7 @@ public class UserMainCode {
 					d++;
 					}
 				else //(!(password.charAt(i).matches("A-Za-z0-9")))
-					{
+		{
 					s++;
 					}
 			}
