@@ -13,7 +13,7 @@ public class ChatClient {
         
         
         // Default port number we are going to use
-        int portnumber = 1236;
+        int portnumber = 1234;
        
         
         // Create a MulticastSocket
