@@ -40,9 +40,11 @@ public class ErrorServlet extends HttpServlet {
 			out.println(s+"<br/>");
 		}
 
+//		out.println("<br/><br/><br/><br/>");
+//		out.println("<form action='javascript:history.back()'><input type=\"submit\" value=\"Go back\" id=\"button-1\"/></form>");
+//		
 		out.println("<br/><br/><br/><br/>");
-		out.println("<form action='javascript:history.back()'><input type=\"submit\" value=\"Go back\" id=\"button-1\"/></form>");
-		
+		out.println("<form action='index.html'><input type=\"submit\" value=\"Go back\" id=\"button-1\"/></form>");
 		
 		
 	}

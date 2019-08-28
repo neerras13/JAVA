@@ -1,6 +1,9 @@
 package comm.example.controller;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -11,25 +14,36 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import comm.example.model.League;
 
+import comm.example.factory.MyConnectionFactory;
+import comm.example.model.League;
 public class AddLeagueController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+	League l = new League();
 	private String season,title,year;
 	private int iYear;
     private List<String> errMsgs;   
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doProcess(request, response);
+		try {
+			doProcess(request, response);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doProcess(request, response);
+		try {
+			doProcess(request, response);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
-	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
 		errMsgs=new LinkedList<String>();
 		season=request.getParameter("season");
 		if(season.equals("Unknmown"))
@@ -56,6 +70,13 @@ public class AddLeagueController extends HttpServlet {
 		if(errMsgs.isEmpty())
 		{
 			request.setAttribute("SUCCESS", new League(title, season, iYear));
+			Connection connection=MyConnectionFactory.getMySqlConnectionForHR();
+			PreparedStatement pst=connection.prepareStatement("insert into league(title,season,year,uid) values(?,?,?,?)");
+			pst.setString(1, title);
+			pst.setString(2, season);
+			pst.setInt(3, iYear);
+			pst.setInt(4, l.serialVersionUID++);
+			pst.executeUpdate();
 			RequestDispatcher  view=request.getRequestDispatcher("success.view");
 			view.forward(request, response);
 		}

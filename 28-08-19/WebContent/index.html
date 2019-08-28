@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Employee CRUD</title>
+</head>
+<body>
+<h1>Add a new employee</h1>
+		<div  style="display: block;">
+		<form id='form-1' action='add.do' method='post'>
+		<label for='input-1'>Name</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input id='input-1' name='name' required='true' type='text'/><br/>
+		<label for='input-2'>Password </label>&nbsp;
+		<input id='input-2' name='password' required='true' type='password'/><br/>
+		<label for='input-3'>Email</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input id='input-3' name='email' required='true' type='email'/><br/>
+		<label for='input-4'>Country</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<select name='country'>
+		<option value='Unknmown'>Select...</option>
+		<option value='India'>India</option>
+		<option value='US'>US</option>
+		<option value='UK'>UK</option>
+		<option value='Other'>Other</option>
+		</select><br/><br/><br/>
+		<input type='submit' value='Add' id='button-1'/>
+		<input type='reset' value='Reset' id='button-2'/>
+		</form>
+		</div><br/></br>
+		<a href="view_emp.view">View All Employees</a>
+</body>
+</html>

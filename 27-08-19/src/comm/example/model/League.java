@@ -1,6 +1,15 @@
 package comm.example.model;
 
-public class League {
+import java.io.Serializable;
+
+@SuppressWarnings("serial")
+public class League implements Serializable{
+	
+	/**
+	 * 
+	 */
+	@SuppressWarnings("unused")
+	public int serialVersionUID = 100;
 	private String title;
 	private String season;
 	private int year;
@@ -34,4 +43,5 @@ public class League {
 	
 	
 	
+
 }

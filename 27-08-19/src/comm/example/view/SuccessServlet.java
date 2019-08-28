@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -32,11 +33,7 @@ public class SuccessServlet extends HttpServlet {
 		League league = (League) request.getAttribute("SUCCESS");
 		out.println("Title"+league.getTitle()+"<br/>"+"Year"+league.getYear()
 		+"<br/>Season"+league.getSeason());
-		
-		
-		out.println("<br/><br/><br/><br/>");
-		out.println("<form action='javascript:history.back()'><input type=\"submit\" value=\"Go back\" id=\"button-1\"/></form>");
-		
+		out.println("added sucessfully...");
 
 	}
 }
