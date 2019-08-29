@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 
-import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -57,36 +56,32 @@ public class EditServlet extends HttpServlet {
 	}
 	
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
+		PrintWriter out=response.getWriter();
 		id=Integer.parseInt(request.getParameter("id"));
 		Employee emp = serv.getEmployeeById(id);
-		PrintWriter out=response.getWriter();
-		out.println(emp.getName());
-		out.println("<h1>Edit employee details</h1><form id='form-1' action='editValue()' method='post'><label for='input-1'>Name</label><input id='input-1' name='name' required='true' value='"+emp.getName()+"' type='text'/><br/><label for='input-2'>Password </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id='input-2' name='password' required='true' value='"+emp.getPassword()+"' type='password'/><br/><label for='input-3'>Email</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+
+		out.println("<h1>Edit employee details</h1>");
+		out.println("<form id='form-1' action='edit.view?id="+id+"' method='post'>");
+		out.println("<label for='input-1'>Name</label>");
+		out.println("<input id='input-1' name='name' required='true' value='"+emp.getName()+"' type='text'/><br/>");
+		out.println("<label for='input-2'>Password </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+		out.println("<input id='input-2' name='password' required='true' value='"+emp.getPassword()+"' type='text'/><br/>");
+		out.println("<label for='input-3'>Email</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
 		out.println("<input id='input-3' name='email' value='"+emp.getEmail()+"' required='true' type='text'/><br/>");
 		out.println("<label for='input-4'>Country</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
 		out.println("<select name='country'>");
-		out.println("<option value='Unknmown'>Select...</option>");
+		out.println("<option value='Unknown'>Select...</option>");
 		out.println("<option value='India'>India</option>");
 		out.println("<option value='US'>US</option>");
 		out.println("<option value='UK'>UK</option>");
 		out.println("<option value='Other'>Other</option>");
 		out.println("</select><br/><br/><br/>");
-		out.println("<input type='submit' value='Add' id='button-1'/>");
+		out.println("<input type='submit' value='Edit and Save' id='button-1'/> ");
 		out.println("<input type='reset' value='Reset' id='button-2'/>");
 		out.println("</form>");
-		String name=request.getParameter("name");
-		String pass=request.getParameter("pass");
-		String email=request.getParameter("email");
-		String country=request.getParameter("country");
-		int a = serv.updateEmployee(new Employee(id,name,pass,email,country));
-		if(a>0)
-		{
-			 RequestDispatcher view=request.getRequestDispatcher("view_emp.view");
-			  view.forward(request, response);	
-		}
-
-		
 
 	}
-	
 }
+
+	
+

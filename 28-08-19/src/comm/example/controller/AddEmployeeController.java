@@ -49,7 +49,6 @@ public class AddEmployeeController extends HttpServlet {
 	}
 	
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		PrintWriter out = response.getWriter();
 		country = request.getParameter("country");
 		name = request.getParameter("name");
 		password = request.getParameter("password");

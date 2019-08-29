@@ -52,14 +52,12 @@ public class EmpDaoImpl implements EmpDao {
 
 	@Override
 	public Employee getEmployeeById(int id) throws SQLException {
-//		Employee e = null;
-//		statement = connection.createStatement();
-//		ResultSet rs = statement.executeQuery("select * from emps where id=11");
-//		while(rs.next()) {
-//		 e = new Employee(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5));
-//		}
-		return null;
-		
+		statement = connection.createStatement();
+		ResultSet rs = statement.executeQuery("select * from emps where id="+id);
+		if(rs.next())
+			 return new Employee(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5));
+		else
+			return null;
 	}
 	@Override
 	public void deleteEmployee(int id) throws SQLException
