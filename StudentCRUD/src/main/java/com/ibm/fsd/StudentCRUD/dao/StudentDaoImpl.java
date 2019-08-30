@@ -27,10 +27,8 @@ public class StudentDaoImpl implements StudentDao{
 	}
 
 	@Override
-	public void updateStudentName(int id,String name) {
-		s=factory.getCurrentSession();
+	public void updateStudentName(Student st,String name) {
 		s.getTransaction().begin();
-		Student st = s.get(Student.class, id);
 		if(st != null) {
 			st.setName(name);
 			s.merge(st);
@@ -67,9 +65,8 @@ public class StudentDaoImpl implements StudentDao{
 	}
 
 	@Override
-	public void updateStudentEmail(int id, String email) {
+	public void updateStudentEmail(Student st,String email) {
 		s.getTransaction().begin();
-		Student st = s.get(Student.class, id);
 		if(st != null) {
 			st.setEmail(email);
 			s.merge(st);
@@ -78,9 +75,8 @@ public class StudentDaoImpl implements StudentDao{
 	}
 
 	@Override
-	public void updateStudentGrade(int id, String grade) {
+	public void updateStudentGrade(Student st, String grade) {
 		s.getTransaction().begin();
-		Student st = s.get(Student.class, id);
 		if(st != null) {
 			st.setGrade(grade);
 			s.merge(st);

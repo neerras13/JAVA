@@ -12,18 +12,18 @@ public class StudentServiceImpl implements StudentService{
 	}
 
 	@Override
-	public void updateStudentName(int id, String name) {
-		dao.updateStudentName(id, name);
+	public void updateStudentName(Student st, String name) {
+		dao.updateStudentName(st, name);
 	}
 
 	@Override
-	public void updateStudentEmail(int id, String email) {
-		dao.updateStudentEmail(id, email);
+	public void updateStudentEmail(Student st, String email) {
+		dao.updateStudentEmail(st, email);
 	}
 
 	@Override
-	public void updateStudentGrade(int id, String grade) {
-		dao.updateStudentGrade(id, grade);
+	public void updateStudentGrade(Student st, String grade) {
+		dao.updateStudentGrade(st, grade);
 	}
 
 	@Override
