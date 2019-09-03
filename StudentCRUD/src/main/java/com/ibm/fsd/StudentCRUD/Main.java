@@ -71,7 +71,9 @@ public class Main {
     	  break;}
     	  }
       }
-      case 5:{ a=-1;
+      case 5:{
+    	  a=-1;
+      	  System.out.println("Bye!");
     	  break;
     	  
       }
