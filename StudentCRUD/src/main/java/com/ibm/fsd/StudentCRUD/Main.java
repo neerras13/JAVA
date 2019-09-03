@@ -14,7 +14,7 @@ public class Main {
       Scanner sc = new Scanner(System.in);
       while(a>0)
       {
-        System.out.println("Enter your choice:\n1. Create a new student\n2. Delete a student\n3.View all Students\n4.Update student details\n5. Exit\n");
+        System.out.println("Enter your choice:\n1. Create a new student\n2. Delete a student\n3.View all Students\n4.Update student details\n5. Find a student record\n6. Exit\n");
         choice=sc.nextInt();
       switch(choice)
       {
@@ -72,6 +72,12 @@ public class Main {
     	  }
       }
       case 5:{
+      	  System.out.println("Enter id of the student: ");
+      	  System.out.println(serv.getById(sc.nextInt()));
+    	  break;
+    	  
+      }
+      case 6:{
     	  a=-1;
       	  System.out.println("Bye!");
     	  break;
