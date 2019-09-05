@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!-- setting constructor values from xml
+	<bean name="stats" class="com.spring.SEP_04_first.bean.Cricketer">
+	<constructor-arg name="number" value="7"/>
+	<constructor-arg name="name" value="Dhoni"/>
+	<constructor-arg name="wins" value="7"/>
+	<constructor-arg name="skill" value="batsman"/>
+	</bean> -->
+			<bean name="thebasket" class="com.spring.SEP_04_first.bean.BasketballCoach">
+		
+	</bean>
+		<bean name="cricket" class="com.spring.SEP_04_first.bean.CricketCoach">
+					<constructor-arg name="bc" ref="thebasket"/>			
+	</bean>
+</beans>
