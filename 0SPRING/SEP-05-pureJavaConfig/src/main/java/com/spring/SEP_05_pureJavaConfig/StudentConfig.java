@@ -1,4 +1,4 @@
-package com.spring.SEP_05_pureJavaConfig.bean;
+package com.spring.SEP_05_pureJavaConfig;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;

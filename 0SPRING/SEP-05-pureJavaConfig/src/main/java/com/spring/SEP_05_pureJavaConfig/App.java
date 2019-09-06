@@ -3,7 +3,7 @@ package com.spring.SEP_05_pureJavaConfig;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.spring.SEP_05_pureJavaConfig.bean.Student;
-import com.spring.SEP_05_pureJavaConfig.bean.StudentConfig;
+import com.spring.SEP_05_pureJavaConfig.StudentConfig;
 
 /**
  * Hello world!
