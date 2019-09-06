@@ -8,14 +8,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class Student {
 
-private String fname;
+private String fname,windows,linux,unix;
 private String lname;
 private String email;
 private String language;
 private String country;
 LinkedHashMap<String, String> states;
 private String[] op;
-private String os;
 
 public Student() {
 	super();
@@ -73,12 +72,30 @@ public void setOp(String[] op) {
 	this.op = op;
 }
 
-public String getOs() {
-	return os;
+
+
+public String getWindows() {
+	return windows;
 }
 
-public void setOs(String os) {
-	this.os = os;
+public void setWindows(String windows) {
+	this.windows = windows;
+}
+
+public String getLinux() {
+	return linux;
+}
+
+public void setLinux(String linux) {
+	this.linux = linux;
+}
+
+public String getUnix() {
+	return unix;
+}
+
+public void setUnix(String unix) {
+	this.unix = unix;
 }
 
 }
