@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<title>Save Passenger</title>
+</head>
+
+<body>
+
+	<div class="container">
+	
+		<h3>Reservation Form</h3>
+		<hr>
+		
+		<p class="h4 mb-4">Save Passenger</p>
+	
+		<form action="#" th:action="@{/passenger/save}"
+						 th:object="${passenger}" method="POST">
+		
+			<input type="text" th:field="*{firstName}"
+					class="form-control mb-4 col-4" placeholder="First name">
+
+			<input type="text" th:field="*{lastName}"
+					class="form-control mb-4 col-4" placeholder="Last name">
+
+			<select class="custom-select custom-select-sm" th:field="*{flight}">
+			<option value="unknown">flight</option>
+            <option value="Air India">Air India</option>
+            <option value="Jet Airways">Jet Airways</option>
+            <option value="Indigo">Indigo</option>
+            </select>
+            
+            <input type="text" th:field="*{source}"
+					class="form-control mb-4 col-4" placeholder="source">
+					
+					<input type="text" th:field="*{destination}"
+					class="form-control mb-4 col-4" placeholder="destination">
+				
+			<button type="submit" class="btn btn-info col-2">Save</button>
+						
+		</form>
+	
+		<hr>
+		<a th:href="@{/passenger/list}">Back to passenger list</a>
+		
+	</div>
+</body>
+
+</html>

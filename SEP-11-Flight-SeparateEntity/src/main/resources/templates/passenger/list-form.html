@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<title>Passenger Directory</title>
+</head>
+
+<body>
+
+<div class="container">
+
+	<h3>Passenger Details</h3>
+	<hr>
+	
+	<!-- Add a button -->
+	<a th:href="@{/passenger/showFormForAdd}"
+		class="btn btn-primary btn-sm mb-3">
+		Add passenger
+	</a>
+	
+	
+	<table class="table table-bordered table-striped">
+		<thead class="thead-dark">
+			<tr>
+				<th>First Name</th>
+				<th>Last Name</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr th:each="tempPass : ${plist}">
+			
+				<td th:text="${tempPass.firstName}" />	
+				<td th:text="${tempPass.lastName}" />		
+				
+			</tr>
+		</tbody>		
+	</table>
+	
+	<h3>Flight Details</h3>
+	<table class="table table-bordered table-striped">
+		<thead class="thead-dark">
+			<tr>
+				<th> Name</th>
+				<th>Source</th>
+				<th>Destination</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr th:each="tempPass : ${fflist}">
+			
+				<td th:text="${tempPass.name}" />	
+				<td th:text="${tempPass.source}" />	
+				<td th:text="${tempPass.destination}"/>	
+				
+			</tr>
+		</tbody>		
+	</table>
+	
+	<h3>Reservation Details</h3>
+	<table class="table table-bordered table-striped">
+		<thead class="thead-dark">
+			<tr>
+				<th>flight Name</th>
+				<th>passenger name</th>
+				
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr th:each="tempPass : ${rrlist}">
+			
+				<td th:text="${tempPass.fname}" />	
+				<td th:text="${tempPass.pname}" />	
+				
+				
+			</tr>
+		</tbody>		
+	</table>
+</div>
+	
+</body>
+</html>
