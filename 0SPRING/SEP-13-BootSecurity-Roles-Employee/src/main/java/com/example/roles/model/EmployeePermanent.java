@@ -16,6 +16,10 @@ public class EmployeePermanent extends Employee{
 		this.commission = salary*0.1;
 	}
 
+	public EmployeePermanent() {
+		super();
+	}
+
 	public double getSalary() {
 		return salary;
 	}

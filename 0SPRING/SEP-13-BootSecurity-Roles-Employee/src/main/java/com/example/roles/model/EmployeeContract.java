@@ -12,6 +12,11 @@ public class EmployeeContract extends Employee{
 	private String contract_period;
 	
 
+	public EmployeeContract() {
+		super();
+	}
+
+
 	public EmployeeContract(String fname, String lname, int hourly_pay, String contract_period) {
 		super(fname, lname);
 		this.hourly_pay = hourly_pay;
