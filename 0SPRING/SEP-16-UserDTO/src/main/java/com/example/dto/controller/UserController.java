@@ -30,7 +30,8 @@ public class UserController {
 		UserDto uDto=mapper.map(userDetail, UserDto.class);
 		
 		UserDto tempDto=userService.createUser(uDto);
-		CreateUserResponseModel model=mapper.map(tempDto, CreateUserResponseModel.class);;
+		CreateUserResponseModel model=mapper.map(tempDto, CreateUserResponseModel.class);
+		System.out.println(model.getFname());
 		return ResponseEntity.status(HttpStatus.CREATED).body(model);
 
 	}

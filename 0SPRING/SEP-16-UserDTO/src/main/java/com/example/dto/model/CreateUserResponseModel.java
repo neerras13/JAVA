@@ -2,8 +2,8 @@ package com.example.dto.model;
 
 public class CreateUserResponseModel {
 
-	private String firstName;
-	private String lastName;
+	private String fname;
+	private String lname;
 	private String email;
 	private String userid;
 	
@@ -12,22 +12,22 @@ public class CreateUserResponseModel {
 	}
 	public CreateUserResponseModel(String firstName, String lastName, String email, String userid) {
 		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
+		this.fname = firstName;
+		this.lname = lastName;
 		this.email = email;
 		this.userid = userid;
 	}
-	public String getFirstName() {
-		return firstName;
+	public String getFname() {
+		return fname;
 	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setFname(String firstName) {
+		this.fname = firstName;
 	}
-	public String getLastName() {
-		return lastName;
+	public String getLname() {
+		return lname;
 	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setLname(String lastName) {
+		this.lname = lastName;
 	}
 	public String getEmail() {
 		return email;

@@ -31,13 +31,13 @@ public class UserServiceImpl implements UserService {
 	public UserDto createUser(UserDto userDetail) {
 		// TODO Auto-generated method stub
 		userDetail.setUserid(UUID.randomUUID().toString());
-		String bPass=bCryptPasswordEncoder.encode(userDetail.getPassword());
-		userDetail.setBpassword(bCryptPasswordEncoder.encode(userDetail.getPassword()));
+//		String bPass=bCryptPasswordEncoder.encode(userDetail.getPassword());
+//		userDetail.setBpassword(bCryptPasswordEncoder.encode(userDetail.getPassword()));
 		ModelMapper mapper=new ModelMapper();
 		mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
 		
 		UserEntity userEntity=mapper.map(userDetail, UserEntity.class);
-		userEntity.setPassword(userDetail.getBpassword());
+		//userEntity.setPassword("password");
 		userRepository.save(userEntity);
 		UserDto uDto=mapper.map(userEntity, UserDto.class);
 		
