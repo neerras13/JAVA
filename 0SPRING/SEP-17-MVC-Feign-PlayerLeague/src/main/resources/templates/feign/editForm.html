@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<title>Player Details</title>
+</head>
+<body>
+<h2 style="margin-left: 45px; margin-top: 20px;">Edit a player</h2>
+<hr/>
+<fieldset style="width: 200px; border:medium; margin-left: 45px;">
+<form action="#" th:action="@{/feign/updatePlayer}" method="post">
+<div class="form-group col-xs-3">
+<input type="text" class="form-control col-xs-3" th:value="${dto.fname}" id="1" name="fname"><br/>
+
+<input type="text" class="form-control" th:value="${dto.lname}" name="lname" id="2" ><br/>
+<input type="text" class="form-control" th:value="${dto.email}" name="email" id="3" readonly><br/>
+<input type="text" class="form-control" th:value="${dto.position}" name="position" id="4"><br/>
+<input type="submit" value="Edit player" class="btn btn-primary">
+</div>
+</form>
+</fieldset>
+</body>
+</html>

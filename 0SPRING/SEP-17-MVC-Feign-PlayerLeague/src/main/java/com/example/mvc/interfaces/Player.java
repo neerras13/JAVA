@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.mvc.data.PlayerDto;
 
@@ -26,5 +27,14 @@ public interface Player {
 	
 	@RequestMapping(value="/find/{id}",method=RequestMethod.GET)
 	public PlayerDto findById(@PathVariable("id") Integer id);
+	
+	@RequestMapping(value="/delete",method =RequestMethod.POST)
+	public void deleteplayer(@RequestParam("email") String email);
+
+	@RequestMapping(value="/update",method =RequestMethod.POST)
+	public PlayerDto updateplayer(@RequestBody PlayerDto dto, @RequestParam("email") String email);
+	
+	@PostMapping("/findEmail")
+	public PlayerDto findByEmail(@RequestParam("email") String email);
 
 }
