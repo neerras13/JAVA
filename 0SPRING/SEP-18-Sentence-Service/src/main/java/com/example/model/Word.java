@@ -1,4 +1,4 @@
-package com.example;
+package com.example.model;
 
 /**
  * 'Word' object is nicely represented in JSON over a regular String.
@@ -26,5 +26,6 @@ public class Word {
 	public String getString() {
 		return getWord();
 	}
+	
 	
 }
