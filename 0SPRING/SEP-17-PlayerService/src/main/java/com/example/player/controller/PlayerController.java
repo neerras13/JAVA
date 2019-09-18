@@ -40,7 +40,7 @@ public class PlayerController {
 		pserv.createPlayer(dto);
 	}
 	
-	@PostMapping("/find/{id}")
+	@GetMapping("/find/{id}")
 	public PlayerDto findById(@PathVariable("id") Integer id) {
 		return pserv.findById(id);
 	}

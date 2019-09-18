@@ -52,7 +52,7 @@ public class PlayerServiceImpl implements PlayerService {
 	}
 
 	@Override
-	public void createPlayer(PlayerDto pdto) {
+	public PlayerDto createPlayer(PlayerDto pdto) {
 		System.out.println("check");
 		ModelMapper mapper=new ModelMapper();
 		mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
@@ -60,6 +60,8 @@ public class PlayerServiceImpl implements PlayerService {
 		Player play = mapper.map(pdto,Player.class);
 		System.out.println(play.getFname()+play.getLname()+play.getPosition()+play.getEmail());
 		pr.save(play);
+		
+		return pdto;
 	}
 
 }

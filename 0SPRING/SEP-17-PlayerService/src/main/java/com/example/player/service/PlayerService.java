@@ -8,5 +8,5 @@ public interface PlayerService {
 
 	public List<PlayerDto> getAll();
 	public PlayerDto findById(Integer id);
-	public void createPlayer(PlayerDto pdto);
+	public PlayerDto createPlayer(PlayerDto pdto);
 }

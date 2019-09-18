@@ -22,9 +22,9 @@ public interface Player {
 	public List<PlayerDto> getAllPlayers();
 	
 	@RequestMapping(value="/add",method = RequestMethod.POST)
-	public void createPlayer(@RequestBody PlayerDto dto);
+	public PlayerDto createPlayer(@RequestBody PlayerDto dto);
 	
-	@RequestMapping(value="/find/{id}",method=RequestMethod.POST)
+	@RequestMapping(value="/find/{id}",method=RequestMethod.GET)
 	public PlayerDto findById(@PathVariable("id") Integer id);
 
 }
